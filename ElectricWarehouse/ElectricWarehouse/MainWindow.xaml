@@ -7,8 +7,43 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid Name="grid1">
-        <Button Name="btnPrint" Content="测试打印" Click="btnPrint_Click"
-                HorizontalAlignment="Center"  VerticalAlignment="Center" Width="94" Height="37"/>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="分类">
+                    
+                </MenuItem>
+                <MenuItem Header="人员">
 
+                </MenuItem>
+                <MenuItem Header="入库建档">
+
+                </MenuItem>
+                <MenuItem Header="借用">
+
+                </MenuItem>
+                <MenuItem Header="归还">
+
+                </MenuItem>
+
+                <MenuItem Header="报损">
+
+                </MenuItem>
+
+                <MenuItem Header="查询">
+                    <MenuItem Header="盘点">
+
+                    </MenuItem>
+                    <MenuItem Header="报表">
+
+                    </MenuItem>
+                </MenuItem>
+
+               
+            </Menu>
+        </DockPanel>
+        <!--<Button Name="btnPrint" Content="测试打印" Click="btnPrint_Click"
+                HorizontalAlignment="Center"  VerticalAlignment="Center" Width="94" Height="37"/>-->
+        <Button Name="btnOpenWindow" Content="OpenWindow" Click="btnOpenWindow_Click"
+                HorizontalAlignment="Center"  VerticalAlignment="Center" Width="94" Height="37"/>
     </Grid>
 </Window>

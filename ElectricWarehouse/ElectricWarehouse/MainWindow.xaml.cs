@@ -27,6 +27,7 @@ namespace ElectricWarehouse
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
+            //https://stackoverflow.com/questions/5661034/printing-in-c-sharp-wpf
             PrintDialog dlg = new PrintDialog();
 
             if ((bool)dlg.ShowDialog().GetValueOrDefault())
@@ -85,6 +86,12 @@ namespace ElectricWarehouse
                 // Now print it.
                 dlg.PrintVisual(grid, Title);
             }
+        }
+
+        private void btnOpenWindow_Click(object sender, RoutedEventArgs e)
+        {
+            Window win = new WindowCategory();
+            win.ShowDialog();
         }
     }
 }
