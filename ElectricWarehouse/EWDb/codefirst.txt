@@ -3,3 +3,6 @@ add class context
 add conn str
 Enable-Migrations
 Enable-Migrations -Force
+Add-Migration AddUrl
+Update-Database -ConnectionStringName EWDbConnectionString -Verbose
+Add-Migration Initial -IgnoreChanges
