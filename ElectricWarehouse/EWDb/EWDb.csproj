@@ -48,14 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeviceBorrow.cs" />
     <Compile Include="Device.cs" />
+    <Compile Include="DeviceReturn.cs" />
     <Compile Include="DeviceStatus.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EWContext.cs" />
     <Compile Include="EWRepository.cs" />
-    <Compile Include="Migrations\201706100832552_Blog2Device.cs" />
-    <Compile Include="Migrations\201706100832552_Blog2Device.Designer.cs">
-      <DependentUpon>201706100832552_Blog2Device.cs</DependentUpon>
+    <Compile Include="Migrations\201706101001167_allt.cs" />
+    <Compile Include="Migrations\201706101001167_allt.Designer.cs">
+      <DependentUpon>201706101001167_allt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,8 +70,8 @@
     <Content Include="codefirst.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706100832552_Blog2Device.resx">
-      <DependentUpon>201706100832552_Blog2Device.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706101001167_allt.resx">
+      <DependentUpon>201706101001167_allt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

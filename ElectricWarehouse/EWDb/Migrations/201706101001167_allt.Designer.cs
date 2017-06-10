@@ -7,13 +7,13 @@ namespace EWDb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Blog2Device : IMigrationMetadata
+    public sealed partial class allt : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Blog2Device));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(allt));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706100832552_Blog2Device"; }
+            get { return "201706101001167_allt"; }
         }
         
         string IMigrationMetadata.Source
