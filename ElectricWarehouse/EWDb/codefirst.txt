@@ -6,3 +6,13 @@ Enable-Migrations -Force
 Add-Migration AddUrl
 Update-Database -ConnectionStringName EWDbConnectionString -Verbose
 Add-Migration Initial -IgnoreChanges
+
+Add-Migration f4 -ConnectionStringName EWDbConnectionString
+
+
+sqlcmd -S .\sqlexpress -E
+sqlcmd -S .\sqlexpress -U sa -P password
+use EW;go;
+select * from Blogs;go;
+
+

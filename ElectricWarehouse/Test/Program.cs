@@ -1,24 +1,23 @@
 ﻿using EWDb;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Configuration;
+using System.Linq;
+
 namespace Test
 {
     class Program
     {
+        static string connStr = ConfigurationManager.ConnectionStrings["EWDbConnectionString"].ConnectionString;
         static void Main(string[] args)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["EWDbConnectionString"].ConnectionString;
             using (var db = new EWContext(connStr))
             {
                 // Create and save a new Blog 
                 Console.Write("Enter a name for a new Blog: ");
                 var name = Console.ReadLine();
 
-                var blog = new Blog { Name = name };
+                //var blog = new Blog { Name = name };
+                var blog = new Blog { f4 = name };
                 db.Blogs.Add(blog);
                 db.SaveChanges();
 
