@@ -35,7 +35,7 @@ namespace EWDb
             var migrator = new DbMigrator(cfg);
             migrator.Update();
         }
-        public DbSet<Blog> Blogs { get; set; }
-        public DbSet<Post> Posts { get; set; }
+        public DbSet<Device> Devices { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }

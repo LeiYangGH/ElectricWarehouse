@@ -26,6 +26,17 @@ namespace EWDb.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            context.Devices.AddOrUpdate(
+                new Device() { Category = "检测类", Name = "万用表", Status = DeviceStatus.Instore, InStoreDate = new DateTime(2017, 6, 10) }
+                );
+            context.Devices.AddOrUpdate(
+    new Device() { Category = "工具类", Name = "电烙铁", Status = DeviceStatus.Instore, InStoreDate = new DateTime(2017, 6, 10) }
+    );
+            context.Devices.AddOrUpdate(
+    new Device() { Category = "元件类", Name = "二极管", Status = DeviceStatus.Instore, InStoreDate = new DateTime(2017, 6, 10) }
+    );
+            context.Employees.Add(new Employee() { NO = "10001", Name = "张总" });
+            context.Employees.Add(new Employee() { NO = "10002", Name = "王工" });
         }
     }
 }

@@ -8,7 +8,7 @@ Update-Database -ConnectionStringName EWDbConnectionString -Verbose
 Add-Migration Initial -IgnoreChanges
 
 Add-Migration f4 -ConnectionStringName EWDbConnectionString
-
+Add-Migration Blog2Device -ConnectionStringName EWDbConnectionString
 
 sqlcmd -S .\sqlexpress -E
 sqlcmd -S .\sqlexpress -U sa -P password

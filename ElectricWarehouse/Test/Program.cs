@@ -12,24 +12,17 @@ namespace Test
         {
             using (var db = new EWContext(connStr))
             {
-                // Create and save a new Blog 
-                Console.Write("Enter a name for a new Blog: ");
-                var name = Console.ReadLine();
 
-                //var blog = new Blog { Name = name };
-                var blog = new Blog { f4 = name };
-                db.Blogs.Add(blog);
-                db.SaveChanges();
-
-                // Display all Blogs from the database 
-                var query = from b in db.Blogs
-                            orderby b.Name
-                            select b;
-
-                Console.WriteLine("All blogs in the database:");
-                foreach (var item in query)
+                Console.WriteLine("所有设备:");
+                foreach (var d in db.Devices)
                 {
-                    Console.WriteLine(item.Name);
+                    Console.WriteLine(d.Name);
+                }
+
+                Console.WriteLine("所有员工:");
+                foreach (var em in db.Employees)
+                {
+                    Console.WriteLine(em.Name);
                 }
 
                 Console.WriteLine("Press any key to exit...");
