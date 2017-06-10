@@ -10,6 +10,10 @@ namespace EWDb
     //https://msdn.microsoft.com/en-us/library/jj193542(v=vs.113).aspx
     public class EWContext : DbContext
     {
+        public EWContext()
+        {
+
+        }
         public EWContext(string connString)
         {
             this.Database.Connection.ConnectionString = connString;

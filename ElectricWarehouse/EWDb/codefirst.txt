@@ -1,0 +1,5 @@
+﻿nuget ef
+add class context
+add conn str
+Enable-Migrations
+Enable-Migrations -Force
