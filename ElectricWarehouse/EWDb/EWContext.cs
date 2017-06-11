@@ -14,7 +14,7 @@ namespace EWDb
     //https://msdn.microsoft.com/en-us/library/jj193542(v=vs.113).aspx
     public class EWContext : DbContext
     {
-        string connStr = ConfigurationManager.ConnectionStrings["EWDbConnectionString"].ConnectionString;
+        public static readonly string connStr = ConfigurationManager.ConnectionStrings["EWDbConnectionString"].ConnectionString;
         public EWContext()
         {
 

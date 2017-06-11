@@ -7,10 +7,12 @@ namespace Test
 {
     class Program
     {
-        static string connStr = ConfigurationManager.ConnectionStrings["EWDbConnectionString"].ConnectionString;
         static void Main(string[] args)
         {
-            using (var db = new EWContext(connStr))
+            EWRepository rep = EWRepository.Instance;
+            rep.AddCategory2(1, "");
+
+            using (var db = new EWContext(EWContext.connStr))
             {
 
                 Console.WriteLine("所有设备分类2名称:");

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EWDb;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace ElectricWarehouse
         public MainWindow()
         {
             InitializeComponent();
+            EWRepository rep = EWRepository.Instance;
+            rep.AddCategory2(1, "");
         }
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)
