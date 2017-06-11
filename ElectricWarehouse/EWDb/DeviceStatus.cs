@@ -8,8 +8,8 @@ namespace EWDb
 {
     public enum DeviceStatus
     {
-        Instore,
-        Lent,
-        Broken
+        Instore=0,
+        Lent=1,
+        Broken=2
     }
 }

@@ -28,7 +28,7 @@ namespace EWDb.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
+            return;
             context.Employees.AddOrUpdate(new Employee() { NO = "10001", Name = "张总" });
             context.Employees.AddOrUpdate(new Employee() { NO = "10002", Name = "王工" });
 
