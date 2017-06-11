@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,14 @@ namespace EWDb
 {
     public class Device
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public string Category { get; set; }
+        [Key]
+        public int NO { get; set; }
+        public int Category2Id { get; set; }
         public string Name { get; set; }
         public DeviceStatus Status { get; set; }
         public DateTime InStoreDate { get; set; }
+        public virtual Category2 Category2 { get; set; }
+        public virtual List<DeviceBorrow> DeviceBorrows { get; set; }
+        public virtual List<DeviceReturn> DeviceReturns { get; set; }
     }
 }

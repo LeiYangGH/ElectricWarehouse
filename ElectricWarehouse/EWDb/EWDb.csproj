@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category2.cs" />
+    <Compile Include="Category1.cs" />
     <Compile Include="DeviceBorrow.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="DeviceReturn.cs" />
@@ -55,9 +57,9 @@
     <Compile Include="Employee.cs" />
     <Compile Include="EWContext.cs" />
     <Compile Include="EWRepository.cs" />
-    <Compile Include="Migrations\201706101001167_allt.cs" />
-    <Compile Include="Migrations\201706101001167_allt.Designer.cs">
-      <DependentUpon>201706101001167_allt.cs</DependentUpon>
+    <Compile Include="Migrations\201706110234320_virt.cs" />
+    <Compile Include="Migrations\201706110234320_virt.Designer.cs">
+      <DependentUpon>201706110234320_virt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +72,8 @@
     <Content Include="codefirst.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706101001167_allt.resx">
-      <DependentUpon>201706101001167_allt.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706110234320_virt.resx">
+      <DependentUpon>201706110234320_virt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
