@@ -7,13 +7,13 @@ namespace EWDb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class virt : IMigrationMetadata
+    public sealed partial class deviceid2no : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(virt));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(deviceid2no));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706110234320_virt"; }
+            get { return "201706110259438_deviceid2no"; }
         }
         
         string IMigrationMetadata.Source

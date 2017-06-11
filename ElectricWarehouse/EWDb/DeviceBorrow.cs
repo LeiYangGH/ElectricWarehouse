@@ -11,7 +11,7 @@ namespace EWDb
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int DeviceNO { get; set; }
+        public string DeviceNO { get; set; }
         public string BorrowBy { get; set; }
         public string Submitter { get; set; }
         public DateTime Date { get; set; }

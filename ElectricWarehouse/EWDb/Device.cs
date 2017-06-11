@@ -11,9 +11,8 @@ namespace EWDb
     public class Device
     {
         [Key]
-        public int NO { get; set; }
+        public string NO { get; set; }
         public int Category2Id { get; set; }
-        public string Name { get; set; }
         public DeviceStatus Status { get; set; }
         public DateTime InStoreDate { get; set; }
         public virtual Category2 Category2 { get; set; }

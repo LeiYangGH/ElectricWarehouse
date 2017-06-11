@@ -13,10 +13,10 @@ namespace Test
             using (var db = new EWContext(connStr))
             {
 
-                Console.WriteLine("所有设备:");
-                foreach (var d in db.Devices)
+                Console.WriteLine("所有设备分类2名称:");
+                foreach (var d in db.Devices.Include(nameof(Category2)))
                 {
-                    Console.WriteLine(d.Name);
+                    Console.WriteLine(d.Category2.Name);
                 }
 
                 Console.WriteLine("所有员工:");

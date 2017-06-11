@@ -35,8 +35,10 @@ namespace EWDb
             var migrator = new DbMigrator(cfg);
             migrator.Update();
         }
-        public DbSet<Device> Devices { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Category1> Category1s { get; set; }
+        public DbSet<Category2> Category2s { get; set; }
+        public DbSet<Device> Devices { get; set; }
         public DbSet<DeviceBorrow> DeviceBorrows { get; set; }
         public DbSet<DeviceReturn> DeviceReturns { get; set; }
     }
