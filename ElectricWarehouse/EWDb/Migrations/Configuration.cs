@@ -28,13 +28,17 @@ namespace EWDb.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            return;
+            //return;
+            context.Database.ExecuteSqlCommand("DBCC CHECKIDENT ('[Category1]', RESEED, 0)");
             context.Employees.AddOrUpdate(new Employee() { NO = "10001", Name = "张总" });
             context.Employees.AddOrUpdate(new Employee() { NO = "10002", Name = "王工" });
 
             context.Category1s.AddOrUpdate(p => p.Name, new Category1() { Name = "电力检修手工工具" });
             context.Category1s.AddOrUpdate(p => p.Name, new Category1() { Name = "电力检修测试设备" });
             context.Category1s.AddOrUpdate(p => p.Name, new Category1() { Name = "电力检修安全用具" });
+            //return;
+
+            context.Database.ExecuteSqlCommand("DBCC CHECKIDENT ('[Category2]', RESEED, 0)");
 
             context.Category2s.AddOrUpdate(p => p.Name, new Category2()
             { Category1Id = 1, Name = "钳子" });

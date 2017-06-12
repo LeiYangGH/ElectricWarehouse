@@ -12,21 +12,29 @@ namespace Test
             EWRepository rep = EWRepository.Instance;
             rep.AddCategory2(1, "");
 
+            Device d0 = null;
             using (var db = new EWContext(EWContext.connStr))
             {
-
-                Console.WriteLine("所有设备分类2名称:");
+                d0 = db.Devices.First(x => x.NO == "111");
+                Console.WriteLine("所有设备:");
                 foreach (var d in db.Devices.Include(nameof(Category2)))
                 {
                     Console.WriteLine($"{d.NO}\t{d.Category2.Name}\t{d.Status}");
                 }
             }
 
-            if (rep.ReturnDevice("111", "ly", "sub"))
+
+            bool success = false;
+            if (d0.Status == DeviceStatus.Instore)
+                success = rep.BorrowDevice("111", "ly", "sub");
+            else if (d0.Status == DeviceStatus.Lent)
+                success = rep.ReturnDevice("111", "ly", "sub");
+
+            if (success)
                 using (var db = new EWContext(EWContext.connStr))
                 {
 
-                    Console.WriteLine("所有设备分类2名称:");
+                    Console.WriteLine("所有设备:");
                     foreach (var d in db.Devices.Include(nameof(Category2)))
                     {
                         Console.WriteLine($"{d.NO}\t{d.Category2.Name}\t{d.Status}");

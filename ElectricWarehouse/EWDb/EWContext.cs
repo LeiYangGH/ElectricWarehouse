@@ -23,7 +23,7 @@ namespace EWDb
         public EWContext(string connString)
         {
             this.Database.Connection.ConnectionString = connString;
-            Update();
+            //Update();
         }
         void Update()
         {
