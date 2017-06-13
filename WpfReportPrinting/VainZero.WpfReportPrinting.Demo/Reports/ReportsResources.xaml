@@ -4,30 +4,7 @@
     xmlns:headeredGrid="clr-namespace:VainZero.Windows.Controls;assembly=VainZero.WpfReportPrinting.Core"
     xmlns:local="clr-namespace:VainZero.WpfReportPrinting.Demo.Reports"
     >
-    <DataTemplate DataType="{x:Type local:ReportSelector}">
-        <ListBox ItemsSource="{Binding Reports}" SelectedItem="{Binding SelectedReport.Value}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <ContentPresenter Content="{Binding ReportName}" />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-    </DataTemplate>
     
-    <!-- サンプルとなるレポートの一覧 -->
-    
-    <!-- ハローワールド -->
-    
-    <DataTemplate DataType="{x:Type local:HelloWorldPageViewModel}">
-        <Grid Margin="30">
-            <StackPanel>
-                <TextBlock HorizontalAlignment="Center" FontSize="30" Text="ハローワールド" />
-                <TextBlock HorizontalAlignment="Right" Text="2007/08/31" />
-                <TextBlock Text="Hello, world!" />
-            </StackPanel>
-        </Grid>
-    </DataTemplate>
-
     <!-- 注文書 -->
 
     <DataTemplate DataType="{x:Type local:OrderFormPage}">

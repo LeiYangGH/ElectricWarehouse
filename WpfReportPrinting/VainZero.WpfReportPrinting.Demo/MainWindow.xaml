@@ -13,26 +13,11 @@
     Height="800"
     >
     <Window.Resources>
-        <DataTemplate DataType="{x:Type local:SampleReportPreviewer}">
-            <DockPanel>
-                <ContentPresenter
-                    DockPanel.Dock="Left"
-                    Content="{Binding ReportSelector}"
-                    />
-                <ContentPresenter Content="{Binding Previewer}" />
-            </DockPanel>
-        </DataTemplate>
+        <local:SampleReportPreviewer x:Key="report"/>
     </Window.Resources>
-    <!--<ContentPresenter>
-        <ContentPresenter.Content>
-            <local:SampleReportPreviewer />
-        </ContentPresenter.Content>
-    </ContentPresenter>-->
-    <DockPanel>
-        <ContentPresenter
-                    DockPanel.Dock="Left"
-                    Content="{Binding ReportSelector}"
-                    />
+
+    <DockPanel DataContext="{StaticResource report}">
+       
         <ContentPresenter Content="{Binding Previewer}" />
     </DockPanel>
 </Window>

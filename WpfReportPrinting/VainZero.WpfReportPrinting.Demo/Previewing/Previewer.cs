@@ -11,7 +11,7 @@ namespace VainZero.WpfReportPrinting.Demo.Previewing
 {
     public sealed class Previewer
     {
-        public IReadOnlyReactiveProperty<IReport> Report { get; }
+        public IReadOnlyReactiveProperty<OrderForm> Report { get; }
 
         public IReadOnlyReactiveProperty<IReadOnlyList<object>> Pages { get; }
 
@@ -32,7 +32,7 @@ namespace VainZero.WpfReportPrinting.Demo.Previewing
             printer.Print(report, pageSize);
         }
 
-        public Previewer(IReadOnlyReactiveProperty<IReport> report)
+        public Previewer(IReadOnlyReactiveProperty<OrderForm> report)
         {
             Report = report;
 

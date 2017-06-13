@@ -79,8 +79,8 @@ namespace VainZero.WpfReportPrinting.Demo.Reports
         }
     }
 
-    public sealed class OrderForm
-        : IReport
+    public sealed class OrderForm : IPaginatable
+
     {
         public string ReportName => "注文書";
 
