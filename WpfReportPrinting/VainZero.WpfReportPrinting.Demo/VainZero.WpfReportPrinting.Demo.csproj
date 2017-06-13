@@ -88,7 +88,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Printing\Printer.cs" />
     <Compile Include="SampleReportPreviewer.cs" />
     <Compile Include="Reports\OrderForm.cs" />
     <Page Include="MainWindow.xaml">

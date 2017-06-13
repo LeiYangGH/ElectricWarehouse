@@ -6,6 +6,8 @@ using Reactive.Bindings;
 using VainZero.Windows.Documents;
 using VainZero.WpfReportPrinting.Demo.Printing;
 using VainZero.WpfReportPrinting.Demo.Reports;
+using System.Printing;
+using System.Windows;
 
 namespace VainZero.WpfReportPrinting.Demo.Previewing
 {
@@ -28,8 +30,21 @@ namespace VainZero.WpfReportPrinting.Demo.Previewing
             var report = Report.Value;
             var pageSize = MediaSizeSelector.SelectedItem.Value.Size;
 
-            var printer = new Printer();
-            printer.Print(report, pageSize);
+            this.Print(report, pageSize);
+
+        }
+
+        private void Print(IPaginatable paginatable, Size pageSize)
+        {
+            var document = paginatable.ToFixedDocument(pageSize);
+
+            var printServer = new LocalPrintServer();
+            var queue = printServer.DefaultPrintQueue;
+            queue.DefaultPrintTicket.PageMediaSize =
+                new PageMediaSize(pageSize.Width, pageSize.Height);
+
+            var writer = PrintQueue.CreateXpsDocumentWriter(queue);
+            writer.Write(document);
         }
 
         public Previewer(IReadOnlyReactiveProperty<OrderForm> report)
