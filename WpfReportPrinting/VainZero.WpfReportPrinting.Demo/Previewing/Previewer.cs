@@ -4,7 +4,6 @@ using System.Reactive.Linq;
 using System.Windows.Input;
 using Reactive.Bindings;
 using VainZero.Windows.Documents;
-using VainZero.WpfReportPrinting.Demo.Printing;
 using VainZero.WpfReportPrinting.Demo.Reports;
 using System.Printing;
 using System.Windows;
