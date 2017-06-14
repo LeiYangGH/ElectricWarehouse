@@ -24,12 +24,23 @@ namespace VainZero.WpfReportPrinting.Demo.Previewing
         public MediaSizeSelector MediaSizeSelector { get; } =
             new MediaSizeSelector();
 
+        private Size A4Size()
+        {
+            var dpi = 96.0;
+            var dpmm = 0.03937 * dpi;
+            var width = 210 * dpmm;
+            var height = 297 * dpmm;
+            var size = new Size(width, height);
+            return size;
+        }
+
         public void Print()
         {
             var report = Report.Value;
-            var pageSize = MediaSizeSelector.SelectedItem.Value.Size;
+            //var pageSize = MediaSizeSelector.SelectedItem.Value.Size;
 
-            this.Print(report, pageSize);
+            //this.Print(report, pageSize);
+            this.Print(report, A4Size());
 
         }
 
