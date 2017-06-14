@@ -21,8 +21,7 @@ namespace VainZero.WpfReportPrinting.Demo.Previewing
 
         public ICommand PrintCommand => printCommand;
 
-        public MediaSizeSelector MediaSizeSelector { get; } =
-            new MediaSizeSelector();
+
 
         private Size A4Size()
         {
@@ -37,11 +36,7 @@ namespace VainZero.WpfReportPrinting.Demo.Previewing
         public void Print()
         {
             var report = Report.Value;
-            //var pageSize = MediaSizeSelector.SelectedItem.Value.Size;
-
-            //this.Print(report, pageSize);
             this.Print(report, A4Size());
-
         }
 
         private void Print(IPaginatable paginatable, Size pageSize)
@@ -62,8 +57,8 @@ namespace VainZero.WpfReportPrinting.Demo.Previewing
             Report = report;
 
             Pages =
-                Report.CombineLatest(
-                    MediaSizeSelector.SelectedSize,
+                Report.CombineLatest(new ReactiveProperty<Size>(
+                    this.A4Size()),
                     (r, pageSize) => r.Paginate(pageSize)
                 )
                 .ToReadOnlyReactiveProperty();

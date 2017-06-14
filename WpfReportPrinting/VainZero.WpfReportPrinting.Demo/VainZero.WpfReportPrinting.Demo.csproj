@@ -112,7 +112,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Previewing\MediaSizeSelector.cs" />
     <Compile Include="Previewing\Previewer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
