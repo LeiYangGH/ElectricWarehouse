@@ -1,0 +1,40 @@
+﻿<Window x:Class="ElectricWarehouse.WindowPrint"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElectricWarehouse"
+        mc:Ignorable="d"
+        Title="WindowPrint" Height="300" Width="300">
+    <Grid VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Name="btnShow" MinHeight="25" MinWidth="70" HorizontalAlignment="Center" Click="btnShow_Click">Show</Button>
+        <Button Grid.Row="1" Name="btnPrint" MinHeight="25" MinWidth="70" HorizontalAlignment="Center"  Click="btnPrint_Click">Print</Button>
+        <ScrollViewer Grid.Row="2">
+            <ItemsControl Name="lbpages"
+                    IsTabStop="False"
+                    >
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="10">
+                            <Border.Effect>
+                                <DropShadowEffect Opacity="0.5" />
+                            </Border.Effect>
+                            <Grid
+                                    Width="500"
+                                    Height="900"
+                                    Background="White"
+                                    >
+                                <ContentPresenter Content="{Binding}" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Window>

@@ -93,8 +93,10 @@ namespace ElectricWarehouse
 
         private void btnOpenWindow_Click(object sender, RoutedEventArgs e)
         {
-            Window win = new WindowCategory();
-            win.ShowDialog();
+            //Window win = new WindowCategory();
+            //win.ShowDialog();
+            Window win = new WindowPrint();
+            win.Show();
         }
     }
 }

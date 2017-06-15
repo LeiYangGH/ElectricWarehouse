@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElectricWarehouse.Reports;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Printing;
@@ -11,27 +12,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using VainZero.Windows.Documents;
-using VainZero.WpfReportPrinting.Demo.Reports;
 
-namespace VainZero.WpfReportPrinting.Demo
+namespace ElectricWarehouse
 {
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// WindowPrint.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class WindowPrint : Window
     {
         OrderForm orderForm;
         private Size a4size;
-        public MainWindow()
+        public WindowPrint()
         {
             InitializeComponent();
             this.orderForm = new OrderForm();
             this.a4size = this.A4Size();
         }
 
+ 
 
         private Size A4Size()
         {
@@ -42,11 +41,7 @@ namespace VainZero.WpfReportPrinting.Demo
             var size = new Size(width, height);
             return size;
         }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+      
         private void btnShow_Click(object sender, RoutedEventArgs e)
         {
             this.lbpages.ItemsSource = this.orderForm.Paginate(this.a4size);
