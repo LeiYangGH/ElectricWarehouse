@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using VainZero.Windows.Documents;
 using VainZero.WpfReportPrinting.Demo.Reports;
 
 namespace VainZero.WpfReportPrinting.Demo
@@ -52,9 +51,46 @@ namespace VainZero.WpfReportPrinting.Demo
             this.lbpages.ItemsSource = this.orderForm.Paginate(this.a4size);
         }
 
+        public FixedDocument ToFixedDocument()
+        {
+            var document = new FixedDocument();
+
+            foreach (var content in this.orderForm.Paginate(this.a4size))
+            {
+                var presenter =
+                    new ContentPresenter()
+                    {
+                        Content = content,
+                        Width = this.a4size.Width,
+                        Height = this.a4size.Height,
+                    };
+
+                var page =
+                    new FixedPage()
+                    {
+                        Width = this.a4size.Width,
+                        Height = this.a4size.Height,
+                    };
+                page.Children.Add(presenter);
+
+                // この3つを行わないと DataGrid がページ全体に展開せず、潰れた状態になる。
+                // これらが実際に何をするかは余裕があったら調べたい。
+                page.Measure(this.a4size);
+                page.Arrange(new Rect(new Point(0, 0), this.a4size));
+                page.UpdateLayout();
+
+                var pageContent = new PageContent() { Child = page };
+                document.Pages.Add(pageContent);
+            }
+
+            return document;
+        }
+
+
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
-            var document = this.orderForm.ToFixedDocument(this.a4size);
+            //var document = this.orderForm.ToFixedDocument(this.a4size);
+            var document = ToFixedDocument();
 
             var printServer = new LocalPrintServer();
             var queue = printServer.DefaultPrintQueue;
