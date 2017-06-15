@@ -5,19 +5,43 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:VainZero.WpfReportPrinting.Demo"
-    xmlns:previewer="clr-namespace:VainZero.WpfReportPrinting.Demo.Previewing"
     xmlns:reports="clr-namespace:VainZero.WpfReportPrinting.Demo.Reports"
     mc:Ignorable="d"
     Title="MainWindow"
     Width="800"
     Height="800"
+    Loaded="Window_Loaded"
     >
-    <Window.Resources>
-        <local:SampleReportPreviewer x:Key="report"/>
-    </Window.Resources>
 
-    <DockPanel DataContext="{StaticResource report}">
-       
-        <ContentPresenter Content="{Binding Previewer}" />
-    </DockPanel>
+    <Grid VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Name="btnShow" MinHeight="25" MinWidth="70" HorizontalAlignment="Center" Click="btnShow_Click">Show</Button>
+        <Button Grid.Row="1" Name="btnPrint" MinHeight="25" MinWidth="70" HorizontalAlignment="Center"  Click="btnPrint_Click">Print</Button>
+        <ScrollViewer Grid.Row="2">
+            <ItemsControl Name="lbpages"
+                    IsTabStop="False"
+                    >
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="10">
+                            <Border.Effect>
+                                <DropShadowEffect Opacity="0.5" />
+                            </Border.Effect>
+                            <Grid
+                                    Width="500"
+                                    Height="900"
+                                    Background="White"
+                                    >
+                                <ContentPresenter Content="{Binding}" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
 </Window>
