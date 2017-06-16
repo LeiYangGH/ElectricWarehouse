@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EWDb;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -9,32 +10,32 @@ using VainZero.Windows.Media;
 
 namespace ElectricWarehouse.Reports
 {
-    public sealed class OrderItem
-    {
-        static Random Random { get; } =
-            new Random();
+    //public sealed class Device
+    //{
+    //    static Random Random { get; } =
+    //        new Random();
 
-        public string Name { get; }
-        public int Count { get; }
-        public int UnitPrice { get; }
-        public int TotalPrice { get; }
-        public string Note { get; }
+    //    public string Name { get; }
+    //    public int Count { get; }
+    //    public int UnitPrice { get; }
+    //    public int TotalPrice { get; }
+    //    public string Note { get; }
 
-        public OrderItem(string name, int unitPrice)
-        {
-            Name = name;
-            Count = 1;
-            UnitPrice = unitPrice;
-            TotalPrice = unitPrice;
+    //    public Device(string name, int unitPrice)
+    //    {
+    //        Name = name;
+    //        Count = 1;
+    //        UnitPrice = unitPrice;
+    //        TotalPrice = unitPrice;
 
-            // ページネーションの難度を上げるために、ランダムな行数の備考を生成する。
-            Note =
-                string.Join(
-                    Environment.NewLine,
-                    Enumerable.Range(0, Random.Next(0, 3)).Select(i => $"{i + 1}行目")
-                );
-        }
-    }
+    //        // ページネーションの難度を上げるために、ランダムな行数の備考を生成する。
+    //        Note =
+    //            string.Join(
+    //                Environment.NewLine,
+    //                Enumerable.Range(0, Random.Next(0, 3)).Select(i => $"{i + 1}行目")
+    //            );
+    //    }
+    //}
 
     public sealed class OrderFormHeader
     {
@@ -58,7 +59,7 @@ namespace ElectricWarehouse.Reports
     public sealed class OrderFormPage
     {
         public OrderFormHeader Header { get; }
-        public IReadOnlyList<OrderItem> Items { get; }
+        public IReadOnlyList<Device> Items { get; }
 
         public int PageIndex { get; set; } = -1;
         public int PageCount { get; set; } = -1;
@@ -66,7 +67,7 @@ namespace ElectricWarehouse.Reports
         public
             OrderFormPage(
                 OrderFormHeader header,
-                IReadOnlyList<OrderItem> items
+                IReadOnlyList<Device> items
             )
         {
             Header = header;
@@ -74,17 +75,40 @@ namespace ElectricWarehouse.Reports
         }
     }
 
-    public sealed class OrderForm : IPaginatable
+    public sealed class OrderForm
 
     {
         public string ReportName => "注文書";
 
         public OrderFormHeader Header { get; }
 
-        public IReadOnlyList<OrderItem> Items { get; } =
-            Enumerable.Range(1, 50)
-            .Select(i => new OrderItem($"Item {i}", i * 100))
-            .ToArray();
+
+
+        //public IReadOnlyList<Device> Items { get; } =
+        //    Enumerable.Range(1, 50)
+        //    .Select(i => new Device($"Item {i}", i * 100))
+        //    .ToArray();
+        public IReadOnlyList<Device> Items { get; }
+        public OrderForm()
+        {
+            //Header =
+            //    new OrderFormHeader(
+            //        "株式会社ほげほげ",
+            //        new DateTime(2017, 01, 15),
+            //        Items.Sum(item => item.TotalPrice)
+            //    );
+
+            using (var db = new EWContext(EWContext.connStr))
+            {
+                this.Items = db.Devices.Include(nameof(Category2)).ToArray();
+                //Console.WriteLine("所有设备:");
+
+                //foreach (var d in db.Devices.Include(nameof(Category2)))
+                //{
+                //    Console.WriteLine($"{d.NO}\t{d.Category2.Name}\t{d.Status}");
+                //}
+            }
+        }
 
         public IEnumerable<OrderFormPage> PaginateCore(Size size)
         {
@@ -155,7 +179,7 @@ namespace ElectricWarehouse.Reports
         public IReadOnlyList<object> Paginate(Size size)
         {
             var pages = PaginateCore(size).ToArray();
-            
+
             // 各ページのページ番号・ページ数を設定する。
             var pageIndex = 1;
             foreach (var page in pages)
@@ -168,14 +192,6 @@ namespace ElectricWarehouse.Reports
             return pages;
         }
 
-        public OrderForm()
-        {
-            Header =
-                new OrderFormHeader(
-                    "株式会社ほげほげ",
-                    new DateTime(2017, 01, 15),
-                    Items.Sum(item => item.TotalPrice)
-                );
-        }
+
     }
 }

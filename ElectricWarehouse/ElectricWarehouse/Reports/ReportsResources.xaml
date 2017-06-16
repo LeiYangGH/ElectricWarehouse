@@ -79,33 +79,23 @@
                 >
                 <headeredGrid:HeaderedGrid.Columns>
                     <headeredGrid:HeaderedGridColumn
-                        Header="商品名"
+                        Header="类别"
                         Width="2*"
-                        CellBinding="{Binding Name}"
+                        CellBinding="{Binding Category2.Name}"
                         />
                     <headeredGrid:HeaderedGridColumn
-                        Header="数量"
+                        Header="状态"
                         Width="80"
-                        CellBinding="{Binding Count}"
-                        CellStyle="{StaticResource NumberCellStyle}"
+                        CellBinding="{Binding Status}"
                         />
+                    <!--CellStyle="{StaticResource NumberCellStyle}"-->
+
                     <headeredGrid:HeaderedGridColumn
-                        Header="単価"
+                        Header="入库日期"
                         Width="80"
-                        CellBinding="{Binding UnitPrice}"
-                        CellStyle="{StaticResource NumberCellStyle}"
+                        CellBinding="{Binding InStoreDate}"
                         />
-                    <headeredGrid:HeaderedGridColumn
-                        Header="金額"
-                        Width="120"
-                        CellBinding="{Binding TotalPrice}"
-                        CellStyle="{StaticResource NumberCellStyle}"
-                        />
-                    <headeredGrid:HeaderedGridColumn
-                        Header="備考"
-                        Width="3*"
-                        CellBinding="{Binding Note}"
-                        />
+                    
                 </headeredGrid:HeaderedGrid.Columns>
             </headeredGrid:HeaderedGrid>
         </Grid>
