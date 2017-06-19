@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using VainZero.Windows.Documents;
 using VainZero.WpfReportPrinting.Demo.Reports;
 
 namespace VainZero.WpfReportPrinting.Demo

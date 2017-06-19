@@ -9,7 +9,6 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 using VainZero.Windows.Controls;
-using VainZero.Windows.Documents;
 using VainZero.Windows.Media;
 
 namespace VainZero.WpfReportPrinting.Demo.Reports
@@ -79,7 +78,7 @@ namespace VainZero.WpfReportPrinting.Demo.Reports
         }
     }
 
-    public sealed class OrderForm : IPaginatable
+    public sealed class OrderForm
 
     {
         public string ReportName => "注文書";

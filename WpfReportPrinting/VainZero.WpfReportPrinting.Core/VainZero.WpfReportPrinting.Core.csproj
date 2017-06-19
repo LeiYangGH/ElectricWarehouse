@@ -62,8 +62,6 @@
       <DependentUpon>HeaderedGridRowCell.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Controls\HeaderedGridCell.cs" />
-    <Compile Include="Windows\Documents\IPaginatable.cs" />
-    <Compile Include="Windows\Documents\PaginatableExtension.cs" />
     <Compile Include="Windows\Media\VisualExtension.cs" />
   </ItemGroup>
   <ItemGroup>
